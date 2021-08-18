@@ -41,10 +41,10 @@
                     <table>
                         <tr>
                             <thead>
-                                <th>Job Title</th>
-                                <th>Description</th>
-                                <th>State</th>
-                                <th>Date Posted</th>
+                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[0] ?>">Job Title</a></th>
+                                <th width="50%"><a href="#">Description</a></th>
+                                <th width="10%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[1] ?>">State</a></th>
+                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[2] ?>">Date Posted</a></th>
                             </thead>
                         </tr>
                     
@@ -52,10 +52,10 @@
                                 foreach($results as $result ){
                     ?>       
                     <tr>
-                        <td><?php echo $result['title'] ?></td>
-                        <td><?php echo $result['description'] ?></td>
-                        <td><?php echo $result['state'] ?></td>
-                        <td><?php echo $result['date_post'] ?></td>
+                        <td width="20%"><?php echo $result['title'] ?></td>
+                        <td width="50%"><?php echo substr($result['description'], 0, 100) ?>...</td>
+                        <td width="10%"><?php echo $result['state'] ?></td>
+                        <td width="20%"><?php echo substr($result['date_post'], 0, 10) ?></td>
                     </tr>
                     <?php
                                 }
@@ -71,5 +71,6 @@
             </div>
         </div>
     </main>
+    <script src="asset/js/script.js"></script>
 </body>
 </html>
