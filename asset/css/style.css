@@ -50,6 +50,11 @@ table td, th {
 }
 
 
+.pagination a {
+    display: inline-block;
+   
+}
+
 
 
 

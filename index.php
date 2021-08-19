@@ -41,10 +41,10 @@
                     <table>
                         <tr>
                             <thead>
-                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[0] ?>">Job Title</a></th>
+                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?search=<?php echo $user_search;?>&sort=<?php echo $defaultSort[0] ?>&page=<?php echo $current_page ?>">Job Title</a></th>
                                 <th width="50%"><a href="#">Description</a></th>
-                                <th width="10%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[1] ?>">State</a></th>
-                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?userSearch=<?php echo $user_search;?>&sort=<?php echo $defaultSort[2] ?>">Date Posted</a></th>
+                                <th width="10%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?search=<?php echo $user_search;?>&sort=<?php echo $defaultSort[1] ?>&page=<?php echo $current_page ?>">State</a></th>
+                                <th width="20%"><a href="<?php echo $_SERVER['PHP_SELF'] ?>?search=<?php echo $user_search;?>&sort=<?php echo $defaultSort[2] ?>&page=<?php echo $current_page ?>">Date Posted</a></th>
                             </thead>
                         </tr>
                     
@@ -52,10 +52,10 @@
                                 foreach($results as $result ){
                     ?>       
                     <tr>
-                        <td width="20%"><?php echo $result['title'] ?></td>
-                        <td width="50%"><?php echo substr($result['description'], 0, 100) ?>...</td>
-                        <td width="10%"><?php echo $result['state'] ?></td>
-                        <td width="20%"><?php echo substr($result['date_post'], 0, 10) ?></td>
+                        <td width="20%" valign="top"><?php echo $result['title'] ?></td>
+                        <td width="50%" valign="top"><?php echo substr($result['description'], 0, 100) ?>...</td>
+                        <td width="10%" valign="top"><?php echo $result['state'] ?></td>
+                        <td width="20%" valign="top"><?php echo substr($result['date_post'], 0, 10) ?></td>
                     </tr>
                     <?php
                                 }
@@ -67,6 +67,9 @@
                         
                     ?>
                     </table>
+                    <div class="pagination">
+                        <?php if(isset($pagination_links)) echo $pagination_links?>
+                    </div>
                 </div>
             </div>
         </div>
